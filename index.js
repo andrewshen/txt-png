@@ -5,6 +5,7 @@ import 'regenerator-runtime/runtime';
 const BASE_DPI = 72;
 const scale = window.devicePixelRatio;
 const txt = document.getElementById('txt');
+const txtWrapper = document.getElementById('txt-wrapper');
 
 const processText = (text) => {
   return text.replaceAll("'", '’').trim();
@@ -16,14 +17,14 @@ const setToClipboard = async (blob) => {
 };
 
 const generateImage = async () => {
-  let dataUrl = await toPng(txt, {
-    height: txt.offsetHeight * scale,
-    width: txt.offsetWidth * scale,
+  let dataUrl = await toPng(txtWrapper, {
+    height: txtWrapper.offsetHeight * scale,
+    width: txtWrapper.offsetWidth * scale,
     style: {
       transform: `scale(${scale})`,
       transformOrigin: 'top left',
-      width: `${txt.offsetWidth}px`,
-      height: `${txt.offsetHeight}px`,
+      width: `${txtWrapper.offsetWidth}px`,
+      height: `${txtWrapper.offsetHeight}px`,
     },
   });
 
