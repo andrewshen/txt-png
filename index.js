@@ -7,6 +7,7 @@ const scale = window.devicePixelRatio;
 const initialText = decodeURI(window.location.pathname.trim().substring(1));
 const txt = document.getElementById('txt');
 const txtWrapper = document.getElementById('txt-wrapper');
+const status = document.getElementById('status');
 
 const processText = (text) => {
   return text.replaceAll("'", '’').trim();
@@ -15,6 +16,13 @@ const processText = (text) => {
 const setToClipboard = async (blob) => {
   const data = [new ClipboardItem({ [blob.type]: blob })];
   await navigator.clipboard.write(data);
+};
+
+const setSuccess = () => {
+  status.innerText = 'Copied to clipboard!';
+  setTimeout(() => {
+    status.innerText = '';
+  }, 2000);
 };
 
 const generateImage = async () => {
@@ -32,7 +40,7 @@ const generateImage = async () => {
   dataUrl = changeDpiDataUrl(dataUrl, BASE_DPI * scale);
   const data = await fetch(dataUrl);
   const blob = await data.blob();
-  await setToClipboard(blob);
+  setToClipboard(blob).then(() => setSuccess());
 };
 
 if (initialText) {

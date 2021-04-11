@@ -32,3 +32,14 @@ body {
   content: attr(data-placeholder);
   color: #d4d4b9;
 }
+
+#status {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  margin-left: 40px;
+  font-size: 20px;
+  color: #d4d4b9;
+}
