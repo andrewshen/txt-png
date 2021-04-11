@@ -10,9 +10,12 @@ body {
 }
 
 #txt {
+  font-size: 20px;
+  background: #fffff8;
+  padding: 20px;
   width: 100%;
 }
 
-textarea {
-  width: 100%;
+#txt:focus {
+  outline: none;
 }
