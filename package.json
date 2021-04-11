@@ -1,7 +1,7 @@
 {
-  "name": "txt-img",
+  "name": "txt-png",
   "version": "1.0.0",
-  "repository": "https://github.com/andrewshen/txt-img.git",
+  "repository": "https://github.com/andrewshen/txt-png.git",
   "author": "Andrew Shen",
   "license": "MIT",
   "devDependencies": {

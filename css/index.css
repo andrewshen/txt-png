@@ -9,13 +9,13 @@ html {
 }
 
 body {
-  max-width: 680px;
+  max-width: 640px;
   margin: 0 auto;
 }
 
 #txt-wrapper {
   background: #fffff8;
-  padding: 60px;
+  padding: 40px;
 }
 
 #txt {
