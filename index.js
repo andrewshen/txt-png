@@ -4,6 +4,7 @@ import 'regenerator-runtime/runtime';
 
 const BASE_DPI = 72;
 const scale = window.devicePixelRatio;
+const initialText = decodeURI(window.location.pathname.trim().substring(1));
 const txt = document.getElementById('txt');
 const txtWrapper = document.getElementById('txt-wrapper');
 
@@ -33,6 +34,11 @@ const generateImage = async () => {
   const blob = await data.blob();
   await setToClipboard(blob);
 };
+
+if (initialText) {
+  txt.appendChild(document.createTextNode(initialText));
+  generateImage();
+}
 
 txt.addEventListener('input', (e) => generateImage());
 txt.addEventListener('paste', (e) => {
