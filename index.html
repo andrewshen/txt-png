@@ -1,17 +1,20 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>txt-img</title>
     <meta
       name="description"
-      content="txt-img makes it easy to share quotes and passages by taking text, reformatting it, and copying it to the user's clipboard as a PNG file."
+      content="txt-img makes it easy to share quotes and passages by reformatting and copying text to your clipboard as a PNG file."
     />
     <meta name="author" content="Andrew Shen" />
     <link rel="stylesheet" href="css/index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <div id="txt" contenteditable="true"></div>
+    <div class="txt-wrapper">
+      <div id="txt" contenteditable="true" spellcheck="false"></div>
+    </div>
     <script src="./index.js"></script>
   </body>
 </html>
