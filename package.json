@@ -1,0 +1,17 @@
+{
+  "name": "txt-img",
+  "version": "1.0.0",
+  "repository": "https://github.com/andrewshen/txt-img.git",
+  "author": "Andrew Shen",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  },
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "dom-to-image": "^2.6.0"
+  }
+}
