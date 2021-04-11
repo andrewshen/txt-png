@@ -48,7 +48,10 @@ if (initialText) {
   generateImage();
 }
 
-txt.addEventListener('input', (e) => generateImage());
+txt.addEventListener('input', (e) => {
+  if (txt.childNodes.length > 0) generateImage();
+});
+
 txt.addEventListener('paste', (e) => {
   e.stopPropagation();
   e.preventDefault();
@@ -65,4 +68,5 @@ txt.addEventListener('paste', (e) => {
     document.execCommand('paste', false, text);
   }
 });
+
 txt.focus();
