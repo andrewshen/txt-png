@@ -1,6 +1,9 @@
-import domtoimage from 'dom-to-image';
+import { toPng, toBlob } from 'dom-to-image';
+import { changeDpiDataUrl } from 'changedpi';
 import 'regenerator-runtime/runtime';
 
+const BASE_DPI = 72;
+const scale = window.devicePixelRatio;
 const txt = document.getElementById('txt');
 
 const setToClipboard = async (blob) => {
@@ -8,15 +11,22 @@ const setToClipboard = async (blob) => {
   await navigator.clipboard.write(data);
 };
 
-const generateImage = () => {
-  domtoimage
-    .toBlob(txt)
-    .then((blob) => {
-      setToClipboard(blob);
-    })
-    .catch(function (error) {
-      console.error('oops, something went wrong!', error);
-    });
+const generateImage = async () => {
+  let dataUrl = await toPng(txt, {
+    height: txt.offsetHeight * scale,
+    width: txt.offsetWidth * scale,
+    style: {
+      transform: `scale(${scale})`,
+      transformOrigin: 'top left',
+      width: `${txt.offsetWidth}px`,
+      height: `${txt.offsetHeight}px`,
+    },
+  });
+
+  dataUrl = changeDpiDataUrl(dataUrl, BASE_DPI * scale);
+  const data = await fetch(dataUrl);
+  const blob = await data.blob();
+  setToClipboard(blob);
 };
 
 txt.addEventListener('input', (e) => generateImage());

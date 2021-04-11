@@ -12,6 +12,7 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
+    "changedpi": "^1.0.4",
     "dom-to-image": "^2.6.0"
   }
 }
