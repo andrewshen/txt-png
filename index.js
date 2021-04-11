@@ -1,4 +1,4 @@
-import { toPng, toBlob } from 'dom-to-image';
+import { toPng } from 'dom-to-image';
 import { changeDpiDataUrl } from 'changedpi';
 import 'regenerator-runtime/runtime';
 
@@ -26,7 +26,7 @@ const generateImage = async () => {
   dataUrl = changeDpiDataUrl(dataUrl, BASE_DPI * scale);
   const data = await fetch(dataUrl);
   const blob = await data.blob();
-  setToClipboard(blob);
+  await setToClipboard(blob);
 };
 
 txt.addEventListener('input', (e) => generateImage());
