@@ -8,16 +8,19 @@ html {
   color: #112;
 }
 
+body {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
 #txt-wrapper {
   background: #fffff8;
-  max-width: 640px;
   padding: 60px;
 }
 
 #txt {
   font-size: 20px;
   line-height: 28px;
-  background: #fffff8;
   cursor: text;
 }
 
