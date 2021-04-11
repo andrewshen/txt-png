@@ -6,6 +6,10 @@ const BASE_DPI = 72;
 const scale = window.devicePixelRatio;
 const txt = document.getElementById('txt');
 
+const processText = (text) => {
+  return text.replaceAll("'", '’').trim();
+};
+
 const setToClipboard = async (blob) => {
   const data = [new ClipboardItem({ [blob.type]: blob })];
   await navigator.clipboard.write(data);
@@ -36,9 +40,9 @@ txt.addEventListener('paste', (e) => {
   let text = '';
   const event = e.originalEvent || e;
   if (event.clipboardData && event.clipboardData.getData) {
-    text = event.clipboardData.getData('text/plain').trim();
+    text = processText(event.clipboardData.getData('text/plain'));
   } else if (window.clipboardData && window.clipboardData.getData) {
-    text = window.clipboardData.getData('Text').trim();
+    text = processText(window.clipboardData.getData('Text').trim());
   }
   if (document.queryCommandSupported('insertText')) {
     document.execCommand('insertText', false, text);

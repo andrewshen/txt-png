@@ -5,6 +5,7 @@ html {
   font-family: 'et-book', serif;
   -webkit-font-smoothing: antialiased;
   background: #fffff8;
+  color: #112;
 }
 
 body {
@@ -17,8 +18,14 @@ body {
   line-height: 28px;
   background: #fffff8;
   max-width: 600px;
+  cursor: text;
 }
 
 #txt:focus {
   outline: none;
+}
+
+#txt:empty:before {
+  content: attr(data-placeholder);
+  color: #d4d4b9;
 }
