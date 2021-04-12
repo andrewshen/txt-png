@@ -5,12 +5,12 @@ html {
   font-family: 'et-book', serif;
   -webkit-font-smoothing: antialiased;
   background: #fffff8;
-  color: #112;
+  color: #111;
 }
 
 body {
   max-width: 640px;
-  margin: 0 auto;
+  margin: 48px auto;
 }
 
 #txt-wrapper {
@@ -42,4 +42,16 @@ body {
   margin-left: 40px;
   font-size: 20px;
   color: #d4d4b9;
+}
+
+@media (prefers-color-scheme: dark) {
+  html,
+  #txt-wrapper {
+    background-color: #111;
+    color: #fff;
+  }
+  #txt:empty:before,
+  #status {
+    color: #555;
+  }
 }
