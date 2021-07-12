@@ -1,6 +1,6 @@
 # txt.png
 
-[txt.png](txt-png.vercel.app) makes it easy to share quotes and passages by reformatting and copying text to your clipboard as a PNG file.
+[txt.png](https://txt-png.vercel.app) makes it easy to share quotes and passages by reformatting and copying text to your clipboard as a PNG file.
 
 ## Usage
 
